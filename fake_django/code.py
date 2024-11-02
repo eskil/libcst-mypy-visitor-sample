@@ -8,16 +8,17 @@ class Doop(object):
 def derp() -> None:
     pass
 
-model = DBModel()
-kwargs = {'a': 10, 'b': 12}
-model.foo(10, 12)
-model.foo(**kwargs)
+def function() -> None:
+    model = DBModel()
+    kwargs = {'a': 10, 'b': 12}
+    model.foo(10, 12)
+    model.foo(**kwargs)
 
-svc = Service()
-kwargs = {'a': 10, 'b': 12}
-svc.foo(10, 12)
-svc.foo(**kwargs)
+    svc = Service()
+    kwargs = {'a': 10, 'b': 12}
+    svc.foo(10, 12)
+    svc.foo(**kwargs)
 
-d = Doop()
-d.doop()
-derp()
+    d = Doop()
+    d.doop()
+    derp()
