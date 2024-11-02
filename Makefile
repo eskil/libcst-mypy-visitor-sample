@@ -11,7 +11,7 @@ deps:
 	fi
 
 test:
-	time python3 ./visit.py -v
+	time python3 ./visit.py -v fake_django/code.py
 
 mrclean:
 	@if [[ "$$VIRTUAL_ENV" != "" ]]; then \
