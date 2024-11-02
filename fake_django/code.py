@@ -10,10 +10,12 @@ def derp() -> None:
 
 model = DBModel()
 kwargs = {'a': 10, 'b': 12}
+model.foo(10, 12)
 model.foo(**kwargs)
 
 svc = Service()
 kwargs = {'a': 10, 'b': 12}
+svc.foo(10, 12)
 svc.foo(**kwargs)
 
 d = Doop()
