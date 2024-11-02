@@ -9,12 +9,6 @@ import argparse
 
 logger = logging.getLogger(__name__)
 
-def class_module_from_fqdn(s: str) -> str:
-    p = s.split('.')
-    m = p[:-1]
-    c = p[-1]
-    return ('.'.join(m), c)
-
 class FunctionCallCollector(libcst.CSTVisitor):
     METADATA_DEPENDENCIES = (libcst.metadata.PositionProvider, MypyTypeInferenceProvider)
 
@@ -60,7 +54,7 @@ class FunctionCallCollector(libcst.CSTVisitor):
         # Let's look for parent class
         # Import the module and find the class there. So we'll need the module and class
         logger.debug("----------------------------------------------")
-        (module_name, class_name) = class_module_from_fqdn(mypy_type.fullname)
+        module_name, class_name = mypy_type.fullname.rsplit('.', 1)
         logger.debug(f"mypy_type module name {module_name}")
         logger.debug(f"mypy_type class name {class_name}")
 
