@@ -11,4 +11,12 @@ deps:
 	fi
 
 test:
-	python3 ./visit.py
+	time python3 ./visit.py -v
+
+mrclean:
+	@if [[ "$$VIRTUAL_ENV" != "" ]]; then \
+		echo "Run 'deactivate' first "; \
+	else \
+		git clean -fdx; \
+		rm -rf venv; \
+	fi
