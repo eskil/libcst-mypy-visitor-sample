@@ -20,5 +20,7 @@
 # MacOS
 .DS_Store
 
-# py compiled
 *.pyc
+__pycache__
+.mypy_cache
+.venv/
