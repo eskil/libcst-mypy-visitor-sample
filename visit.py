@@ -94,12 +94,18 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if args.verbose > 1:
+    if args.verbose == 0:
+        logging.basicConfig(level=logging.ERROR)
+    elif args.verbose > 1:
         logging.basicConfig(level=logging.DEBUG)
     elif args.verbose > 0:
         logging.basicConfig(level=logging.INFO)
 
     logger.info(f"args: {args}")
+
+    if not args.paths[0]:
+        parser.print_help()
+        sys.exit(1)
 
     for fname in args.paths[0]:
         root = Path(__file__).parent

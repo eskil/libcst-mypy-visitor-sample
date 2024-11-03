@@ -27,19 +27,10 @@ make test
 
 The output is
 ```
-python3 ./visit.py -v fake_django/code.py
-INFO:__main__:args: Namespace(verbose=1, paths=[['fake_django/code.py']])
-WARNING:__main__:Call at fake_django/code.py#L12:12, 'DBModel()' has no type signature
-WARNING:__main__:Call at fake_django/code.py#L14:4, 'model.foo(10 12)' calls a 'fake_django.model.model.DBModel' which inherits from ['fake_django.bases.BaseModel'] with arguments ['10', '12']
-WARNING:__main__:Call at fake_django/code.py#L15:4, 'model.foo(**kwargs)' calls a 'fake_django.model.model.DBModel' which inherits from ['fake_django.bases.BaseModel'] with arguments ['**kwargs']
-ERROR:__main__:Call at fake_django/code.py#L15:4, 'model.foo(**kwargs)' calls a BaseModel with **kwargs
-WARNING:__main__:Call at fake_django/code.py#L17:10, 'Service()' has no type signature
-WARNING:__main__:Call at fake_django/code.py#L19:4, 'svc.foo(10 12)' calls a 'fake_django.service.service.Service' which inherits from ['fake_django.bases.BaseService'] with arguments ['10', '12']
-WARNING:__main__:Call at fake_django/code.py#L20:4, 'svc.foo(**kwargs)' calls a 'fake_django.service.service.Service' which inherits from ['fake_django.bases.BaseService'] with arguments ['**kwargs']
-WARNING:__main__:Call at fake_django/code.py#L22:8, 'Doop()' has no type signature
-WARNING:__main__:Call at fake_django/code.py#L23:4, 'd.doop()' calls a 'fake_django.code.Doop' which inherits from ['builtins.object'] with arguments []
-WARNING:__main__:Call at fake_django/code.py#L24:4, 'derp()' has no type signature
-        0.77 real         0.72 user         0.04 sys
+python3 ./visit.py fake_django/code.py
+ERROR:__main__:Call at fake_django/code.py#L23:4, 'model.foo(**kwargs)' calls a BaseModel with **kwargs
+ERROR:__main__:Call at fake_django/code.py#L27:4, 'model.foo(**kwargs)' calls a BaseModel with **kwargs
+ERROR:__main__:Call at fake_django/code.py#L31:4, 'model.foo(**kwargs)' calls a BaseModel with **kwargs
 ```
 
 In `fake_django`, there's a set of files/modules to fake a framework
