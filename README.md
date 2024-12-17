@@ -7,7 +7,7 @@ particular baseclass. For whatever reasons.
 
 # How
 
-## Metal/venv
+## Bare metal venv
 
 The Makefile provides a few targets for setting up a venv and running the test;
 
@@ -16,6 +16,27 @@ make venv
 source .venv/bin/activate
 make deps
 make test
+```
+
+## pyenv
+
+```
+# Install pyenv and pyenv-virtualend
+brew install pyenv pyenv-virtualenv
+# enable in zshrc by adding pyenv plugin;
+# plugins=(git macos pyenv)
+
+# This was tested with python 3.12.6, but any probably works
+pyenv install 3.12.6
+
+# Create our venv
+pyenv virtualenv 3.12.6 libcst-mypy-visitor-sample
+
+# cd into source
+cd libcst-mypy-visitor-sample
+
+# Use pyenv local, now cd'inghere + zsh plugin will switch to venv
+pyenv local libcst-mypy-visitor-sample
 ```
 
 ## Devcontainer

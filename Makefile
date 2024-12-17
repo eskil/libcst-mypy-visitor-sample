@@ -11,7 +11,11 @@ deps:
 	fi
 
 test:
-	time python3 ./visit.py -v fake_django/code.py
+	@if [[ "$$VIRTUAL_ENV" != "" ]]; then \
+		time python3 ./visit.py -v fake_django/code.py; \
+	else \
+		echo "Run 'source .venv/bin/activate' first "; \
+	fi
 
 mrclean:
 	@if [[ "$$VIRTUAL_ENV" != "" ]]; then \
